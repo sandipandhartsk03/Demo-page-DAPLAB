@@ -46,6 +46,13 @@
       gap: 40px;
       margin-top: 25px;
     }
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
     .column {
       background: none;
       border-radius: 12px;
@@ -87,20 +94,16 @@
 
   <img src="table2.jpg" alt="Table 2 Figure">
 
-  <!-- === MPS Dataset Section === -->
+  <!-- === Combined Dataset Section === -->
   <section class="dataset-section">
-    <h2>MPS Dataset</h2>
+    <h2>MPS & SpeechOcean Datasets</h2>
     <div class="audio-grid">
       <div class="column"><h4>Original</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button></div>
       <div class="column"><h4>NACLM</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button></div>
       <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button></div>
       <div class="column"><h4>VTLN<br>α = 1.20, ps = −2</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button></div>
     </div>
-  </section>
 
-  <!-- === SpeechOcean Dataset Section === -->
-  <section class="dataset-section">
-    <h2>SpeechOcean Dataset</h2>
     <div class="audio-grid">
       <div class="column"><h4>Original</h4><button onclick="playAudio('_ORG_000940049.wav', this)">▶</button></div>
       <div class="column"><h4>NACLM</h4><button onclick="playAudio('NAC_000940049.wav', this)">▶</button></div>
@@ -109,48 +112,59 @@
     </div>
   </section>
 
-  <!-- === Effect of Analysis-Synthesis Section === -->
+  <!-- === Detailed Analysis Section === -->
   <section class="dataset-section">
-    <h2>Effect of Analysis–Synthesis</h2>
+    <h2>The following sections present a detailed analysis of the speech samples obtained from each method in Table 2</h2>
+
+    <h3>Effect of Analysis–Synthesis</h3>
     <p><strong>This section presents speech samples obtained with VTLN and McAdams methods at α = 1 to analyze how their analysis–synthesis process affects the speech samples, without any formant shift.</strong></p>
 
+    <!-- === MPS Dataset === -->
     <h3>MPS Dataset</h3>
     <div class="audio-grid">
-      <div class="column"><h4>Original</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
-      <div class="column"><h4>Original</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
-      <div class="column"><h4>Original</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4></div>
+      <div class="column"><h4>VTLN α=1</h4></div>
+      <div class="column"><h4>McAdams α=1</h4></div>
     </div>
 
+    <div class="row">
+      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button></div>
+    </div>
+    <div class="row">
+      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button></div>
+    </div>
+    <div class="row">
+      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button></div>
+    </div>
+
+    <!-- === SpeechOcean Dataset === -->
     <h3>SpeechOcean Dataset</h3>
     <div class="audio-grid">
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4></div>
+      <div class="column"><h4>VTLN α=1</h4></div>
+      <div class="column"><h4>McAdams α=1</h4></div>
     </div>
 
-    <div class="audio-grid">
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button></div>
+    <div class="row">
+      <div class="column"><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
     </div>
-
-    <h3>SpeechOcean (Original, VTLN, McAdams)</h3>
-    <div class="audio-grid">
-      <div class="column"><h4>Original</h4><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><h4>Original</h4><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
-      <div class="column"><h4>Original</h4><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
+    <div class="row">
+      <div class="column"><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button></div>
     </div>
-
-    <div class="audio-grid">
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button></div>
-    </div>
-
-    <div class="audio-grid">
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button></div>
+    <div class="row">
+      <div class="column"><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button></div>
     </div>
 
     <p style="text-align:left; max-width:800px; margin:40px auto; color:#333;">
