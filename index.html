@@ -23,48 +23,55 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* === Horizontal audio layout === */
+    /* === Horizontal audio layout with circular buttons === */
     .audio-grid {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       flex-wrap: nowrap;
-      gap: 15px;
-      overflow-x: auto;
+      gap: 40px;
       margin-top: 30px;
-      padding-bottom: 10px;
     }
 
     .column {
-      background: #fff;
+      background: none;
       border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 200px; /* fixed width for each card */
-      flex-shrink: 0;
+      padding: 10px;
     }
 
     .column h3 {
-      margin-top: 0;
+      margin-bottom: 15px;
       font-size: 1.1em;
       color: #222;
     }
 
-    audio {
-      width: 180px; /* reduced player width */
-      margin-top: 10px;
+    /* Circular Play Buttons */
+    button {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      background: #333;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    /* Optional scrollbar styling for horizontal scroll */
-    .audio-grid::-webkit-scrollbar {
-      height: 8px;
+    button:hover {
+      background: #555;
+      transform: scale(1.05);
     }
-    .audio-grid::-webkit-scrollbar-thumb {
-      background: #bbb;
-      border-radius: 4px;
+
+    button:active {
+      background: #111;
+      transform: scale(0.95);
     }
-    .audio-grid::-webkit-scrollbar-thumb:hover {
-      background: #888;
+
+    /* Hide the main audio element */
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -78,36 +85,59 @@
   <div class="audio-grid">
     <div class="column">
       <h3>Original</h3>
-      <audio controls>
-        <source src="3a8b_EN-OL-RC-234_1____Org.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
+      <button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button>
     </div>
 
     <div class="column">
       <h3>NACLM</h3>
-      <audio controls>
-        <source src="3a8b_EN-OL-RC-234_1___NACLM.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
+      <button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button>
     </div>
 
     <div class="column">
       <h3>McAdams<br>α = 0.80</h3>
-      <audio controls>
-        <source src="3a8b_EN-OL-RC-234_1___McAdams_0.80.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
+      <button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button>
     </div>
 
     <div class="column">
       <h3>VTLN<br>α = 1.20, ps = −2</h3>
-      <audio controls>
-        <source src="3a8b_EN-OL-RC-234_1_-2_1.20.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
+      <button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button>
     </div>
   </div>
+
+  <audio id="player"></audio>
+
+  <script>
+    let currentButton = null;
+
+    function playAudio(file, button) {
+      const player = document.getElementById('player');
+
+      // If the same button is clicked again, pause
+      if (currentButton === button && !player.paused) {
+        player.pause();
+        button.textContent = '▶';
+        return;
+      }
+
+      // Reset previous button icon
+      if (currentButton && currentButton !== button) {
+        currentButton.textContent = '▶';
+      }
+
+      // Set new audio source and play
+      player.src = file;
+      player.play();
+
+      // Update icons
+      button.textContent = '⏸';
+      currentButton = button;
+
+      // When audio ends, reset button
+      player.onended = () => {
+        button.textContent = '▶';
+      };
+    }
+  </script>
 
 </body>
 </html>
