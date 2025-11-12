@@ -1,232 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EAAI-26 Submission | Speaker Anonymization (MPS & SpeechOcean Datasets)</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 40px;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAAI-26 Submission | Speaker Anonymization (MPS & SpeechOcean Datasets)</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+  }
 
-    h1 { color: #333; font-weight: 700; }
-    h2 {
-      color: #1E90FF;
-      font-weight: 700;
-      margin-bottom: 20px;
-      margin-top: 40px;
-    }
-    h3 {
-      color: #222;
-      margin-top: 25px;
-      font-size: 1.2em;
-      font-weight: 600;
-    }
+  h1 { color: #333; font-weight: 700; }
+  h2 {
+    color: #1E90FF;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  h3 {
+    color: #222;
+    margin-top: 25px;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-    h4 {
-      font-size: 1.05em;
-      font-weight: 700;
-      color: #000;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+  img {
+    width: 90%;
+    max-width: 700px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
 
-    img {
-      width: 90%;
-      max-width: 700px;
-      border-radius: 10px;
-      margin: 20px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+  .dataset-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 40px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  }
 
-    .dataset-section {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      margin-top: 40px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-    }
+  .audio-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 60px;
+    margin-top: 25px;
+  }
 
-    .audio-grid {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 25px;
-    }
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 25px;
+  }
 
-    .row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
-    }
+  .column {
+    width: 180px; /* ensures equal width for alignment */
+    text-align: center;
+  }
 
-    .column {
-      background: none;
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      width: 150px;
-    }
+  button {
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    border: none;
+    background: #333;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  button:hover { background: #555; transform: scale(1.05); }
+  button:active { background: #111; transform: scale(0.97); }
 
-    button {
-      width: 140px;
-      height: 45px;
-      border-radius: 25px;
-      border: none;
-      background: #333;
-      color: white;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    }
-    button:hover { background: #555; transform: scale(1.05); }
-    button:active { background: #111; transform: scale(0.97); }
+  audio { display: none; }
 
-    audio { display: none; }
+  .observations {
+    text-align: left;
+    max-width: 800px;
+    margin: 90px auto 40px auto; /* large gap above */
+    color: #000;
+    font-weight: 600;
+    line-height: 1.9; /* increased bullet spacing */
+  }
 
-    .observations {
-      text-align: left;
-      max-width: 800px;
-      margin: 70px auto 40px auto; /* extra space above */
-      color: #000;
-      font-weight: 600;
-      line-height: 1.8; /* spacing between bullet points */
-    }
-
-    footer {
-      margin-top: 60px;
-      color: #777;
-      font-size: 0.9em;
-    }
-  </style>
+  footer {
+    margin-top: 60px;
+    color: #777;
+    font-size: 0.9em;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Accepted at the Symposium on Educational Advances in Artificial Intelligence (EAAI-26)</h1>
-  <h2>Speaker Anonymization for Children’s Oral Reading Assessment</h2>
-  <h3>Table 2 from the manuscript is reproduced here together with audio examples for methods M1, M2, and M3.</h3>
+<h1>Accepted at the Symposium on Educational Advances in Artificial Intelligence (EAAI-26)</h1>
+<h2>Speaker Anonymization for Children’s Oral Reading Assessment</h2>
+<h3>Table 2 from the manuscript is reproduced here together with audio examples for methods M1, M2, and M3.</h3>
 
-  <img src="table2.jpg" alt="Table 2 Figure">
+<img src="table2.jpg" alt="Table 2 Figure">
 
-  <!-- === MPS Dataset Section === -->
-  <section class="dataset-section">
-    <h4>MPS Dataset (M1, M2, M3 from Table 2)</h4>
-    <div class="audio-grid">
-      <div class="column"><h4>Original<br>‌</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button></div>
-      <div class="column"><h4>NACLM<br>‌</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN<br>α = 1.20, ps = −2</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button></div>
-    </div>
-  </section>
+<!-- === MPS Dataset Section === -->
+<section class="dataset-section">
+  <h4>MPS Dataset (M1, M2, M3 from Table 2)</h4>
+  <div class="audio-grid">
+    <div class="column"><h4>Original<br>‌</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button></div>
+    <div class="column"><h4>NACLM<br>‌</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button></div>
+    <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button></div>
+    <div class="column"><h4>VTLN<br>α = 1.20, ps = −2</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button></div>
+  </div>
+</section>
 
-  <!-- === SpeechOcean Dataset Section === -->
-  <section class="dataset-section">
-    <h4>SpeechOcean Dataset (M1, M2, M3 from Table 2)</h4>
-    <div class="audio-grid">
-      <div class="column"><h4>Original<br>‌</h4><button onclick="playAudio('ORG_000940049.wav', this)">▶</button></div>
-      <div class="column"><h4>NACLM<br>‌</h4><button onclick="playAudio('NAC_000940049.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('McAdams_0.80_000940049.wav', this)">▶</button></div>
-      <div class="column"><h4>VTLN<br>α = 1.20, ps = −3</h4><button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button></div>
-    </div>
-  </section>
+<!-- === SpeechOcean Dataset Section === -->
+<section class="dataset-section">
+  <h4>SpeechOcean Dataset (M1, M2, M3 from Table 2)</h4>
+  <div class="audio-grid">
+    <div class="column"><h4>Original<br>‌</h4><button onclick="playAudio('ORG_000940049.wav', this)">▶</button></div>
+    <div class="column"><h4>NACLM<br>‌</h4><button onclick="playAudio('NAC_000940049.wav', this)">▶</button></div>
+    <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('McAdams_0.80_000940049.wav', this)">▶</button></div>
+    <div class="column"><h4>VTLN<br>α = 1.20, ps = −3</h4><button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button></div>
+  </div>
+</section>
 
-  <!-- === Detailed Analysis Section === -->
-  <section class="dataset-section">
-    <h2>The following sections present a detailed analysis of the speech samples obtained from each method in Table 2</h2>
+<!-- === Detailed Analysis Section === -->
+<section class="dataset-section">
+  <h2>The following sections present a detailed analysis of the speech samples obtained from each method in Table 2</h2>
 
-    <h4>Effect of Analysis–Synthesis</h4>
-    <p><strong>This section presents speech samples obtained with VTLN and McAdams methods at α = 1 to analyze how their analysis–synthesis process affects the speech samples, without any formant shift.</strong></p>
+  <h4>Effect of Analysis–Synthesis</h4>
+  <p><strong>This section presents speech samples obtained with VTLN and McAdams methods at α = 1 to analyze how their analysis–synthesis process affects the speech samples, without any formant shift.</strong></p>
 
-    <!-- === MPS Dataset === -->
-    <h4>MPS Dataset</h4>
-    <div class="audio-grid">
-      <div class="column"><h4>Original<br>‌</h4></div>
-      <div class="column"><h4>VTLN<br>α = 1</h4></div>
-      <div class="column"><h4>McAdams<br>α = 1</h4></div>
-    </div>
+  <!-- === MPS Dataset === -->
+  <h4>MPS Dataset</h4>
+  <div class="audio-grid">
+    <div class="column"><h4>Original<br>‌</h4></div>
+    <div class="column"><h4>VTLN<br>α = 1</h4></div>
+    <div class="column"><h4>McAdams<br>α = 1</h4></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button></div>
+  </div>
 
-    <!-- === SpeechOcean Dataset === -->
-    <h4>SpeechOcean Dataset</h4>
-    <div class="audio-grid">
-      <div class="column"><h4>Original<br>‌</h4></div>
-      <div class="column"><h4>VTLN<br>α = 1</h4></div>
-      <div class="column"><h4>McAdams<br>α = 1</h4></div>
-    </div>
+  <!-- === SpeechOcean Dataset === -->
+  <h4>SpeechOcean Dataset</h4>
+  <div class="audio-grid">
+    <div class="column"><h4>Original<br>‌</h4></div>
+    <div class="column"><h4>VTLN<br>α = 1</h4></div>
+    <div class="column"><h4>McAdams<br>α = 1</h4></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button></div>
+  </div>
 
-    <div class="row">
-      <div class="column"><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button></div>
-      <div class="column"><button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button></div>
-    </div>
+  <div class="row">
+    <div class="column"><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button></div>
+    <div class="column"><button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button></div>
+  </div>
 
-    <h4>Observations</h4>
-    <div class="observations">
-      • At α = 1, McAdams synthesis is exact.<br>
-      • Moderate distortion is observed in the VTLN reconstructed samples due to the WORLD vocoder-based analysis-synthesis.<br>
-      • The perceived speaker identity is not altered by the analysis-synthesis.
-    </div>
-  </section>
+  <h4>Observations</h4>
+  <div class="observations">
+    • At α = 1, McAdams synthesis is exact.<br>
+    • Moderate distortion is observed in the VTLN reconstructed samples due to the WORLD vocoder-based analysis-synthesis.<br>
+    • The perceived speaker identity is not altered by the analysis-synthesis.
+  </div>
+</section>
 
-  <audio id="player"></audio>
+<audio id="player"></audio>
+<script>
+let currentButton = null;
+function playAudio(file, button) {
+  const player = document.getElementById('player');
+  if (currentButton === button && !player.paused) {
+    player.pause(); button.textContent = '▶'; return;
+  }
+  if (currentButton && currentButton !== button) currentButton.textContent = '▶';
+  player.src = file;
+  player.play();
+  button.textContent = '⏸';
+  currentButton = button;
+  player.onended = () => { button.textContent = '▶'; };
+}
+</script>
 
-  <script>
-    let currentButton = null;
-    function playAudio(file, button) {
-      const player = document.getElementById('player');
-      if (currentButton === button && !player.paused) {
-        player.pause(); button.textContent = '▶'; return;
-      }
-      if (currentButton && currentButton !== button) currentButton.textContent = '▶';
-      player.src = file;
-      player.play();
-      button.textContent = '⏸';
-      currentButton = button;
-      player.onended = () => { button.textContent = '▶'; };
-    }
-  </script>
-
-  <footer>
-    © 2025 Dr. Sandipan Dhar | Speaker Anonymization Demo (EAAI-26)
-  </footer>
+<footer>
+  © 2025 Dr. Sandipan Dhar | Speaker Anonymization Demo (EAAI-26)
+</footer>
 
 </body>
 </html>
