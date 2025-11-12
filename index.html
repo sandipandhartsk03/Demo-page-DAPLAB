@@ -94,20 +94,24 @@
 
   <img src="table2.jpg" alt="Table 2 Figure">
 
-  <!-- === Combined Dataset Section === -->
+  <!-- === MPS Dataset Section === -->
   <section class="dataset-section">
-    <h2>MPS & SpeechOcean Datasets</h2>
+    <h2>MPS Dataset (M1, M2, M3 from Table 2)</h2>
     <div class="audio-grid">
       <div class="column"><h4>Original</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button></div>
       <div class="column"><h4>NACLM</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button></div>
       <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button></div>
       <div class="column"><h4>VTLN<br>α = 1.20, ps = −2</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button></div>
     </div>
+  </section>
 
+  <!-- === SpeechOcean Dataset Section === -->
+  <section class="dataset-section">
+    <h2>SpeechOcean Dataset (M1, M2, M3 from Table 2)</h2>
     <div class="audio-grid">
-      <div class="column"><h4>Original</h4><button onclick="playAudio('ORG_000940049.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('_ORG_000940049.wav', this)">▶</button></div>
       <div class="column"><h4>NACLM</h4><button onclick="playAudio('NAC_000940049.wav', this)">▶</button></div>
-      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('McAdams_0.80_000940049.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('_McAdams_0.80_000940049.wav', this)">▶</button></div>
       <div class="column"><h4>VTLN<br>α = 1.20, ps = −3</h4><button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button></div>
     </div>
   </section>
@@ -152,8 +156,8 @@
     </div>
 
     <div class="row">
-      <div class="column"><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
       <div class="column"><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div class="column"><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
       <div class="column"><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
     </div>
     <div class="row">
