@@ -203,6 +203,78 @@
     <li>The perceived speaker identity is not altered by the analysis–synthesis.</li>
   </ul>
 </section>
+<!-- === Effect of Spectral Warping === -->
+<section class="dataset-section">
+  <h2>Effect of Spectral Warping</h2>
+  <p><strong>This section presents speech samples at α = 0.80 and α = 1.20 for both VTLN and McAdams methods to illustrate the effect of spectral warping on anonymization.</strong></p>
+
+  <!-- === MPS Dataset === -->
+  <h4>MPS Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(5, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>α = 0.80</h4></div>
+      <div><h4>VTLN<br>α = 1.20</h4></div>
+      <div><h4>McAdams<br>α = 0.80</h4></div>
+      <div><h4>McAdams<br>α = 1.20</h4></div>
+
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_alpha_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_alpha_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdams_1.20.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <!-- === SpeechOcean Dataset === -->
+  <h4 style="margin-top:60px;">SpeechOcean Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(5, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>α = 0.80</h4></div>
+      <div><h4>VTLN<br>α = 1.20</h4></div>
+      <div><h4>McAdams<br>α = 0.80</h4></div>
+      <div><h4>McAdams<br>α = 1.20</h4></div>
+
+      <div><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_VTLN_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_McAdams_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_McAdams_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000940042_VTLN_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000940042_VTLN_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000940042_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000940042_McAdams_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140054_VTLN_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140054_VTLN_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140054_McAdams_0.80.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140054_McAdams_1.20.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <h4 class="observations-title">Observations</h4>
+  <ul class="observations">
+    <li><strong>At α = 0.80 and 1.20</strong>, the VTLN and McAdams methods lead to noticeable anonymization of speaker identity.</li>
+    <li><strong>At the lower value α</strong>, the speech becomes more child-like, whereas at the higher value, the transformation produces a more adult-like voice.</li>
+    <li>For <strong>VTLN at α = 0.80</strong>, the resulting voice sounds unnatural since children’s voices already have higher formant frequencies, and further upward shifting causes noticeable distortion.</li>
+  </ul>
+</section>
 
 <audio id="player"></audio>
 <script>
