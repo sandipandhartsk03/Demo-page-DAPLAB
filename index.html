@@ -20,7 +20,14 @@
     h2 {
       color: #1E90FF;
       font-weight: 600;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #222;
+      margin-top: 25px;
+      font-size: 1.2em;
     }
 
     img {
@@ -31,25 +38,34 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
+    .dataset-section {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 40px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    }
+
     .audio-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 40px;
-      margin-top: 30px;
+      margin-top: 25px;
     }
 
     .column {
       background: none;
       border-radius: 12px;
       padding: 10px;
+      text-align: center;
     }
 
-    .column h3 {
-      margin-bottom: 15px;
-      font-size: 1.1em;
-      color: #222;
+    .column h4 {
+      margin-bottom: 10px;
+      font-size: 1.05em;
+      color: #333;
     }
 
     button {
@@ -79,13 +95,8 @@
       display: none;
     }
 
-    h3.red {
-      color: red;
-      margin-top: 50px;
-    }
-
     footer {
-      margin-top: 50px;
+      margin-top: 60px;
       color: #777;
       font-size: 0.9em;
     }
@@ -94,222 +105,94 @@
 <body>
 
   <h1>Accepted at the Symposium on Educational Advances in Artificial Intelligence (EAAI-26)</h1>
-  <h2>Table 2 from the manuscript is reproduced here together with an audio example for method M1, M2, and M3.</h2>
+  <h2>Speaker Anonymization for Children’s Oral Reading Assessment</h2>
+  <h3>Table 2 from the manuscript is reproduced here together with audio examples for methods M1, M2, and M3.</h3>
 
   <img src="table2.jpg" alt="Table 2 Figure">
 
-  <!-- MPS DATASET SECTION -->
-  <h2>MPS Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button>
+  <!-- === MPS Dataset Section === -->
+  <section class="dataset-section">
+    <h2>MPS Dataset</h2>
+    <div class="audio-grid">
+      <div class="column">
+        <h4>Original</h4>
+        <button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>NACLM</h4>
+        <button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>McAdams<br>α = 0.80</h4>
+        <button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>VTLN<br>α = 1.20, ps = −2</h4>
+        <button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button>
+      </div>
     </div>
-    <div class="column">
-      <h3>NACLM</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>McAdams<br>α = 0.80</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 1.20, ps = −2</h3>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button>
-    </div>
-  </div>
+  </section>
 
-  <!-- SpeechOcean DATASET SECTION -->
-  <h2>SpeechOcean Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('_ORG_000940049.wav', this)">▶</button>
+  <!-- === SpeechOcean Dataset Section === -->
+  <section class="dataset-section">
+    <h2>SpeechOcean Dataset</h2>
+    <div class="audio-grid">
+      <div class="column">
+        <h4>Original</h4>
+        <button onclick="playAudio('_ORG_000940049.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>NACLM</h4>
+        <button onclick="playAudio('NAC_000940049.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>McAdams<br>α = 0.80</h4>
+        <button onclick="playAudio('_McAdams_0.80_000940049.wav', this)">▶</button>
+      </div>
+      <div class="column">
+        <h4>VTLN<br>α = 1.20, ps = −3</h4>
+        <button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button>
+      </div>
     </div>
-    <div class="column">
-      <h3>NACLM</h3>
-      <button onclick="playAudio('NAC_000940049.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>McAdams<br>α = 0.80</h3>
-      <button onclick="playAudio('_McAdams_0.80_000940049.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 1.20, ps = −3</h3>
-      <button onclick="playAudio('VTLN_1.20_ps_-3_000940049.wav', this)">▶</button>
-    </div>
-  </div>
-<!-- =========================
-     EFFECT OF ANALYSIS-SYNTHESIS
-     ========================= -->
-  <h2>Effect of Analysis–Synthesis</h2>
-  <p><strong>This section presents speech samples obtained with VTLN and McAdams methods at α = 1 to analyze how their analysis-synthesis process affects the speech samples, without any formant shift.</strong></p>
+  </section>
 
-  <h2>MPS Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 1</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>McAdams<br>α = 1</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button>
-    </div>
-  </div>
+  <audio id="player"></audio>
 
-  <h2>SpeechOcean Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button>
-      <button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button>
-      <button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 1</h3>
-      <button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button>
-      <button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button>
-      <button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>McAdams<br>α = 1</h3>
-      <button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button>
-      <button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button>
-      <button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button>
-    </div>
-  </div>
+  <script>
+    // === Update this line with your repo name ===
+    const repoBase = "https://raw.githubusercontent.com/sandipandhartsk03/<repo>/main/";
+    let currentButton = null;
 
-  <h3><strong>Observations:</strong></h3>
-  <ul>
-    <li><strong>At α = 1, McAdams synthesis is exact.</strong></li>
-    <li><strong>Moderate distortion is observed in the VTLN reconstructed samples due to the WORLD vocoder-based analysis synthesis.</strong></li>
-    <li><strong>The perceived speaker identity is not altered by the analysis-synthesis.</strong></li>
-  </ul>
+    function playAudio(file, button) {
+      const player = document.getElementById('player');
 
-  <!-- =========================
-       EFFECT OF SPECTRAL WARPING
-       ========================= -->
-  <h2>Effect of Spectral Warping</h2>
-  <p><strong>This section presents speech samples at α = 0.80 and α = 1.20 for both VTLN and McAdams methods to illustrate the effect of spectral warping on anonymization.</strong></p>
+      const url = repoBase + file; // Build full raw GitHub URL
 
-  <h2>MPS Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 0.80</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_alpha_0.80.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_alpha_0.80.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_0.80.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>α = 1.20</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.20.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.20.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.20.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>McAdams<br>α = 0.80 / 1.20</h3>
-      <button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_0.80.wav', this)">▶</button>
-      <button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.20.wav', this)">▶</button>
-      <button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdams_1.20.wav', this)">▶</button>
-    </div>
-  </div>
+      if (currentButton === button && !player.paused) {
+        player.pause();
+        button.textContent = '▶';
+        return;
+      }
 
-  <h3><strong>Observations:</strong></h3>
-  <ul>
-    <li><strong>At α = 0.80 and 1.20, the VTLN and McAdams methods lead to noticeable anonymization of speaker identity.</strong></li>
-    <li><strong>At the lower value α, the speech becomes more child-like, whereas at the higher value, the transformation produces a more adult-like voice.</strong></li>
-    <li><strong>For VTLN at α = 0.80, the resulting voice sounds unnatural since children’s voices already have higher formant frequencies.</strong></li>
-  </ul>
+      if (currentButton && currentButton !== button) {
+        currentButton.textContent = '▶';
+      }
 
-  <!-- =========================
-       EFFECT OF PITCH SHIFT
-       ========================= -->
-  <h2>Effect of Pitch Shift</h2>
-  <p><strong>This section presents speech samples to analyze the effect of positive and negative semitone shifts on anonymization.</strong></p>
+      player.src = url;
+      player.play();
 
-  <h2>MPS Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_2_Grade3.wav', this)">▶</button>
-      <button onclick="playAudio('4a27d_EN-OL-RC-426_1_Grade4.wav', this)">▶</button>
-      <button onclick="playAudio('5a8k_EN-OL-RC-538_1_Grade_5.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>ps = −2</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_2_PS_-2.wav', this)">▶</button>
-      <button onclick="playAudio('4a27d_EN-OL-RC-426_1_PS-2.wav', this)">▶</button>
-      <button onclick="playAudio('5a8k_EN-OL-RC-538_1_PS-2.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>VTLN<br>ps = +2</h3>
-      <button onclick="playAudio('3a8b_EN-OL-RC-234_2_PS2.wav', this)">▶</button>
-      <button onclick="playAudio('4a27d_EN-OL-RC-426_1_PS2.wav', this)">▶</button>
-      <button onclick="playAudio('5a8k_EN-OL-RC-538_1_PS2.wav', this)">▶</button>
-    </div>
-  </div>
+      button.textContent = '⏸';
+      currentButton = button;
 
-  <h3><strong>Observations:</strong></h3>
-  <ul>
-    <li><strong>Pitch shifts of ±2–3 semitones significantly anonymize speaker identity.</strong></li>
-    <li><strong>Positive shifts raise the pitch (more child-like), while negative shifts lower it (more adult-like).</strong></li>
-  </ul>
+      player.onended = () => {
+        button.textContent = '▶';
+      };
+    }
+  </script>
 
-  <!-- =========================
-       NACLM ILLUSTRATION
-       ========================= -->
-  <h2>Illustration of Anonymization using the NACLM Method</h2>
-  <h2>MPS Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('3a1f_EN-OL-RC-234_2.wav', this)">▶</button>
-      <button onclick="playAudio('4a27d_EN-OL-RC-426_1.wav', this)">▶</button>
-      <button onclick="playAudio('5a4c_EN-OL-RC-538_2.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>NACLM</h3>
-      <button onclick="playAudio('3a1f_EN-OL-RC-234_2_NAC.wav', this)">▶</button>
-      <button onclick="playAudio('4a27d_EN-OL-RC-426_1_NAC.wav', this)">▶</button>
-      <button onclick="playAudio('5a4c_EN-OL-RC-538_2_NAC.wav', this)">▶</button>
-    </div>
-  </div>
+  <footer>
+    © 2025 Dr. Sandipan Dhar | Speaker Anonymization Demo (EAAI-26)
+  </footer>
 
-  <h2>SpeechOcean Dataset</h2>
-  <div class="audio-grid">
-    <div class="column">
-      <h3>Original</h3>
-      <button onclick="playAudio('014650108.wav', this)">▶</button>
-      <button onclick="playAudio('020270170.wav', this)">▶</button>
-      <button onclick="playAudio('000940042.wav', this)">▶</button>
-    </div>
-    <div class="column">
-      <h3>NACLM</h3>
-      <button onclick="playAudio('014650108_NAC.wav', this)">▶</button>
-      <button onclick="playAudio('020270170_NAC.wav', this)">▶</button>
-      <button onclick="playAudio('000940042_NAC.wav', this)">▶</button>
-    </div>
-  </div>
-
-  <h3><strong>Observations:</strong></h3>
-  <ul>
-    <li><strong>NACLM yields the strongest anonymization among all methods but with reduced naturalness.</strong></li>
-    <li><strong>Longer samples (e.g., from MPS) exhibit mixed speaker traits, lowering naturalness further.</strong></li>
-    <li><strong>Speech content and prosody show noticeable distortions post anonymization.</strong></li>
-  </ul>
+</body>
+</html>
