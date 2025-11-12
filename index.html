@@ -66,15 +66,6 @@
 
   audio { display: none; }
 
-  .observations {
-    text-align: left;
-    max-width: 800px;
-    margin: 90px auto 40px auto;
-    color: #000;
-    font-weight: 600;
-    line-height: 1.9;
-  }
-
   footer { margin-top: 60px; color: #777; font-size: 0.9em; }
 
   /* === Perfect alignment grid for Effect-of-Analysis === */
@@ -99,9 +90,31 @@
     margin-bottom: 8px;
   }
 
-  /* smaller top gap for Observations title */
-  h4 + .observations {
-    margin-top: 6px;
+  /* === Improved Observations Styling === */
+  .observations-title {
+    margin-top: 70px;       /* more vertical space from audio buttons */
+    margin-bottom: 6px;     /* closer to bullet points */
+    font-size: 1.05em;
+    font-weight: 700;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .observations {
+    text-align: left;
+    list-style-type: disc;
+    margin: 10px auto 40px auto;
+    padding-left: 45px;      /* bullet alignment control */
+    max-width: 800px;
+    color: #000;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  .observations li {
+    margin-bottom: 8px;      /* space between items */
   }
 </style>
 </head>
@@ -183,12 +196,12 @@
     </div>
   </div>
 
-  <h4 style="margin-bottom: 6px;">Observations</h4>
-  <div class="observations">
-    • At α = 1, McAdams synthesis is exact.<br>
-    • Moderate distortion is observed in the VTLN reconstructed samples due to the WORLD vocoder-based analysis-synthesis.<br>
-    • The perceived speaker identity is not altered by the analysis-synthesis.
-  </div>
+  <h4 class="observations-title">Observations</h4>
+  <ul class="observations">
+    <li><strong>At α = 1</strong>, McAdams synthesis is exact.</li>
+    <li><strong>Moderate distortion</strong> is observed in the <strong>VTLN</strong> reconstructed samples due to the <strong>WORLD vocoder–based analysis–synthesis</strong>.</li>
+    <li>The perceived speaker identity is not altered by the analysis–synthesis.</li>
+  </ul>
 </section>
 
 <audio id="player"></audio>
