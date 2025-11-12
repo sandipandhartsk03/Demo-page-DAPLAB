@@ -12,24 +12,18 @@
       padding: 40px;
       text-align: center;
     }
-
-    h1 {
-      color: #333;
-    }
-
+    h1 { color: #333; }
     h2 {
       color: #1E90FF;
       font-weight: 600;
       margin-bottom: 20px;
       margin-top: 40px;
     }
-
     h3 {
       color: #222;
       margin-top: 25px;
       font-size: 1.2em;
     }
-
     img {
       width: 90%;
       max-width: 700px;
@@ -37,7 +31,6 @@
       margin: 20px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
     .dataset-section {
       background: white;
       border-radius: 15px;
@@ -45,7 +38,6 @@
       margin-top: 40px;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
     }
-
     .audio-grid {
       display: flex;
       justify-content: center;
@@ -54,20 +46,17 @@
       gap: 40px;
       margin-top: 25px;
     }
-
     .column {
       background: none;
       border-radius: 12px;
       padding: 10px;
       text-align: center;
     }
-
     .column h4 {
       margin-bottom: 10px;
       font-size: 1.05em;
       color: #333;
     }
-
     button {
       width: 80px;
       height: 80px;
@@ -80,27 +69,14 @@
       transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-
-    button:hover {
-      background: #555;
-      transform: scale(1.05);
-    }
-
-    button:active {
-      background: #111;
-      transform: scale(0.95);
-    }
-
-    audio {
-      display: none;
-    }
-
+    button:hover { background: #555; transform: scale(1.05); }
+    button:active { background: #111; transform: scale(0.95); }
+    audio { display: none; }
     footer {
       margin-top: 60px;
       color: #777;
       font-size: 0.9em;
     }
-
   </style>
 </head>
 <body>
@@ -115,22 +91,10 @@
   <section class="dataset-section">
     <h2>MPS Dataset</h2>
     <div class="audio-grid">
-      <div class="column">
-        <h4>Original</h4>
-        <button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>NACLM</h4>
-        <button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>McAdams<br>α = 0.80</h4>
-        <button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>VTLN<br>α = 1.20, ps = −2</h4>
-        <button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button>
-      </div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1____Org.wav', this)">▶</button></div>
+      <div class="column"><h4>NACLM</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___NACLM.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1___McAdams_0.80.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN<br>α = 1.20, ps = −2</h4><button onclick="playAudio('3a8b_EN-OL-RC-234_1_-2_1.20.wav', this)">▶</button></div>
     </div>
   </section>
 
@@ -138,23 +102,63 @@
   <section class="dataset-section">
     <h2>SpeechOcean Dataset</h2>
     <div class="audio-grid">
-      <div class="column">
-        <h4>Original</h4>
-        <button onclick="playAudio('ORG_000940049.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>NACLM</h4>
-        <button onclick="playAudio('NAC_000940049.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>McAdams<br>α = 0.80</h4>
-        <button onclick="playAudio('McAdams_0.80_000940049.wav', this)">▶</button>
-      </div>
-      <div class="column">
-        <h4>VTLN<br>α = 1.20, ps = −3</h4>
-        <button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button>
-      </div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('_ORG_000940049.wav', this)">▶</button></div>
+      <div class="column"><h4>NACLM</h4><button onclick="playAudio('NAC_000940049.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams<br>α = 0.80</h4><button onclick="playAudio('_McAdams_0.80_000940049.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN<br>α = 1.20, ps = −3</h4><button onclick="playAudio('-3_1.20__000940049.wav', this)">▶</button></div>
     </div>
+  </section>
+
+  <!-- === Effect of Analysis-Synthesis Section === -->
+  <section class="dataset-section">
+    <h2>Effect of Analysis–Synthesis</h2>
+    <p><strong>This section presents speech samples obtained with VTLN and McAdams methods at α = 1 to analyze how their analysis–synthesis process affects the speech samples, without any formant shift.</strong></p>
+
+    <h3>MPS Dataset</h3>
+    <div class="audio-grid">
+      <div class="column"><h4>Original</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1-Original.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2-Org.wav', this)">▶</button></div>
+    </div>
+
+    <h3>SpeechOcean Dataset</h3>
+    <div class="audio-grid">
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2_VTLN_1.wav', this)">▶</button></div>
+    </div>
+
+    <div class="audio-grid">
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('3a7b_EN-OL-RC-234_1_McAdams_1.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('4a2j_EN-OL-RC-426_1_McAdams_1.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('5a1c_EN-OL-RC-538_2_McAdmas_1.wav', this)">▶</button></div>
+    </div>
+
+    <h3>SpeechOcean (Original, VTLN, McAdams)</h3>
+    <div class="audio-grid">
+      <div class="column"><h4>Original</h4><button onclick="playAudio('032140054_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('014650040_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div class="column"><h4>Original</h4><button onclick="playAudio('000940042-SpeechOcean-Org.wav', this)">▶</button></div>
+    </div>
+
+    <div class="audio-grid">
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('032140054_Speech_Ocean_Org.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('014650040_VTLN_1.wav', this)">▶</button></div>
+      <div class="column"><h4>VTLN α=1</h4><button onclick="playAudio('000940042_VTLN_1.wav', this)">▶</button></div>
+    </div>
+
+    <div class="audio-grid">
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('032140054_McAdams_1.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('014650040_McAdams_1.wav', this)">▶</button></div>
+      <div class="column"><h4>McAdams α=1</h4><button onclick="playAudio('000940042_McAdams_1.wav', this)">▶</button></div>
+    </div>
+
+    <p style="text-align:left; max-width:800px; margin:40px auto; color:#333;">
+      <strong>Observations:</strong><br>
+      • At α = 1, McAdams synthesis is exact.<br>
+      • Moderate distortion is observed in the VTLN reconstructed samples due to the WORLD vocoder-based analysis-synthesis.<br>
+      • The perceived speaker identity is not altered by the analysis-synthesis.
+    </p>
   </section>
 
   <audio id="player"></audio>
@@ -163,26 +167,15 @@
     let currentButton = null;
     function playAudio(file, button) {
       const player = document.getElementById('player');
-
       if (currentButton === button && !player.paused) {
-        player.pause();
-        button.textContent = '▶';
-        return;
+        player.pause(); button.textContent = '▶'; return;
       }
-
-      if (currentButton && currentButton !== button) {
-        currentButton.textContent = '▶';
-      }
-
+      if (currentButton && currentButton !== button) currentButton.textContent = '▶';
       player.src = file;
       player.play();
-
       button.textContent = '⏸';
       currentButton = button;
-
-      player.onended = () => {
-        button.textContent = '▶';
-      };
+      player.onended = () => { button.textContent = '▶'; };
     }
   </script>
 
