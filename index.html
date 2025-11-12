@@ -388,6 +388,55 @@
   </ul>
 </section>
 
+  <!-- === Illustration of Anonymization using the NACLM Method === -->
+<section class="dataset-section">
+  <h2>Illustration of Anonymization using the NACLM Method</h2>
+  <p><strong>This section presents speech samples demonstrating the anonymization strength and naturalness of the NACLM method compared to the original recordings.</strong></p>
+
+  <!-- === MPS Dataset === -->
+  <h4>MPS Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(2, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>NACLM</h4></div>
+
+      <div><button onclick="playAudio('3a1f_EN-OL-RC-234_2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a1f_EN-OL-RC-234_2_NAC.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('4a27d_EN-OL-RC-426_1.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a27d_EN-OL-RC-426_1_NAC.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('5a4c_EN-OL-RC-538_2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a4c_EN-OL-RC-538_2_NAC.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <!-- === SpeechOcean Dataset === -->
+  <h4 style="margin-top:60px;">SpeechOcean Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(2, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>NACLM</h4></div>
+
+      <div><button onclick="playAudio('014650108.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650108_NAC.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('020270170.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('020270170_NAC.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('000940042.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000940042_NAC.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <h4 class="observations-title">Observations</h4>
+  <ul class="observations">
+    <li><strong>The speech samples from the NACLM method</strong> show the strongest anonymization among all the considered methods, but this comes at the cost of naturalness. For longer speech segments (e.g., from the MPS dataset), the anonymized outputs exhibit multiple perceived speaker identities, degrading overall naturalness.</li>
+    <li><strong>Beyond naturalness, speech content and prosody</strong> are also noticeably distorted during anonymization, further emphasizing the trade-off between privacy strength and perceptual quality.</li>
+  </ul>
+</section>
+
+
 <audio id="player"></audio>
 <script>
 let currentButton = null;
