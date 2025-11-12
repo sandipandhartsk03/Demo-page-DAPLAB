@@ -12,9 +12,19 @@
       padding: 40px;
       text-align: center;
     }
-    h1, h2 {
+
+    /* main heading */
+    h1 {
       color: #333;
     }
+
+    /* blue subtitle */
+    h2 {
+      color: #1E90FF;      /* 🔹 Dodger Blue shade */
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
     img {
       width: 90%;
       max-width: 700px;
@@ -45,7 +55,7 @@
       color: #222;
     }
 
-    /* Circular Play Buttons */
+    /* circular play buttons */
     button {
       width: 80px;
       height: 80px;
@@ -69,15 +79,16 @@
       transform: scale(0.95);
     }
 
-    /* Hide the main audio element */
-    audio {
-      display: none;
+    audio { 
+      display: none; 
     }
   </style>
 </head>
 <body>
 
   <h1>Submitted to the Symposium on Educational Advances in Artificial Intelligence (EAAI-26)</h1>
+  
+  <!-- blue subheading -->
   <h2>Table 2 from the manuscript is reproduced here together with an audio example for method M1, M2, M3</h2>
 
   <img src="table2.jpg" alt="Table 2 Figure">
@@ -108,31 +119,30 @@
 
   <script>
     let currentButton = null;
-
     function playAudio(file, button) {
       const player = document.getElementById('player');
 
-      // If the same button is clicked again, pause
+      // Pause if same button clicked
       if (currentButton === button && !player.paused) {
         player.pause();
         button.textContent = '▶';
         return;
       }
 
-      // Reset previous button icon
+      // Reset previous button
       if (currentButton && currentButton !== button) {
         currentButton.textContent = '▶';
       }
 
-      // Set new audio source and play
+      // Play new file
       player.src = file;
       player.play();
 
-      // Update icons
+      // Update icon
       button.textContent = '⏸';
       currentButton = button;
 
-      // When audio ends, reset button
+      // Reset after playback ends
       player.onended = () => {
         button.textContent = '▶';
       };
