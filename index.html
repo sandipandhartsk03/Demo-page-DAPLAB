@@ -276,6 +276,118 @@
   </ul>
 </section>
 
+  <!-- === Effect of Pitch Shift === -->
+<section class="dataset-section">
+  <h2>Effect of Pitch Shift</h2>
+  <p><strong>This section presents speech samples to analyze the effect of positive and negative semitone shifts on anonymization.</strong></p>
+
+  <!-- === MPS Dataset === -->
+  <h4>MPS Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(3, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>ps = −2</h4></div>
+      <div><h4>VTLN<br>ps = +2</h4></div>
+
+      <div><button onclick="playAudio('3a8b_EN-OL-RC-234_2_Grade3.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a8b_EN-OL-RC-234_2_PS_-2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a8b_EN-OL-RC-234_2_PS2.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('4a27d_EN-OL-RC-426_1_Grade4.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a27d_EN-OL-RC-426_1_PS-2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a27d_EN-OL-RC-426_1_PS2.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('5a8k_EN-OL-RC-538_1_Grade_5.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a8k_EN-OL-RC-538_1_PS-2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a8k_EN-OL-RC-538_1_PS2.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <!-- === SpeechOcean Dataset === -->
+  <h4 style="margin-top:60px;">SpeechOcean Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(3, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>ps = −3</h4></div>
+      <div><h4>VTLN<br>ps = +3</h4></div>
+
+      <div><button onclick="playAudio('000920025_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000920025_-3.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('000920025_3.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('001120010_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('001120010_-3.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('001120010_3.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('030270053_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('030270053____-3.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('030270053____3.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <h4 class="observations-title">Observations</h4>
+  <ul class="observations">
+    <li><strong>Pitch shifts of +2/+3 and −2/−3</strong> significantly anonymize speaker identity. Positive shifts raise the pitch, while negative shifts lower it, making the voice sound more adult-like.</li>
+    <li><strong>With a positive semitone shift</strong>, particularly in the SpeechOcean dataset, the samples sound unnatural because children’s speech is already high-pitched, and further raising it makes the voice less natural.</li>
+  </ul>
+</section>
+
+<!-- === Combined Effect of Pitch Shift and Spectral Warping === -->
+<section class="dataset-section">
+  <h2>Combined Effect of Pitch Shift and Spectral Warping</h2>
+  <p><strong>This section presents the combined effect of positive and negative semitone shifts and spectral warping (α = 1.20) on anonymization.</strong></p>
+
+  <!-- === MPS Dataset === -->
+  <h4>MPS Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(3, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>α = 1.20, ps = +2</h4></div>
+      <div><h4>VTLN<br>α = 1.20, ps = −2</h4></div>
+
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_1.20_ps_2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('3a7b_EN-OL-RC-234_1_alpha_1.20_ps_-2.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_1.20_ps_2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('4a2j_EN-OL-RC-426_1_alpha_1.20_ps_-2.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('5a3c_EN-OL-RC-538_2_Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a3c_EN-OL-RC-538_2_alpha_1.20_ps_2.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('5a3c_EN-OL-RC-538_2_alpha_1.20_ps_-2.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <!-- === SpeechOcean Dataset === -->
+  <h4 style="margin-top:60px;">SpeechOcean Dataset</h4>
+  <div class="center-container">
+    <div class="aligned-table" style="grid-template-columns: repeat(3, 180px);">
+      <div><h4>Original</h4></div>
+      <div><h4>VTLN<br>α = 1.20, ps = +3</h4></div>
+      <div><h4>VTLN<br>α = 1.20, ps = −3</h4></div>
+
+      <div><button onclick="playAudio('032140078-org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140078_3_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('032140078_-3_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('036310062-org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('036310062_3_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('036310062_-3_1.20.wav', this)">▶</button></div>
+
+      <div><button onclick="playAudio('014650040-Org.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_3_1.20.wav', this)">▶</button></div>
+      <div><button onclick="playAudio('014650040_-3_1.20.wav', this)">▶</button></div>
+    </div>
+  </div>
+
+  <h4 class="observations-title">Observations</h4>
+  <ul class="observations">
+    <li><strong>Pitch and formant shifts</strong> (change in spectral warping factor) together result in significant anonymization, clearly evident from the samples.</li>
+    <li><strong>Negative semitone shift + spectral warping (α &gt; 1)</strong> makes the voice more adult-like with minimal impact on naturalness, while a positive semitone shift makes it more child-like but reduces naturalness.</li>
+  </ul>
+</section>
+
 <audio id="player"></audio>
 <script>
 let currentButton = null;
